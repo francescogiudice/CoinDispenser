@@ -7,6 +7,9 @@
  */
 package coindispenser;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,7 +18,13 @@ import static org.junit.Assert.*;
  *  * 
  * @author Claudio Cusano <claudio.cusano@unipv.it>
  */
-public class CoinDispenserTest {
-
+public class CoinDispenserTest 
+{
+    static Random r=new Random();
+    static int n=r.nextInt(100);
+    static CoinDispenser cd=new CoinDispenser(n);
+    static int s=cd.countCoins(1)+cd.countCoins(2)+cd.countCoins(5)+cd.countCoins(10)+cd.countCoins(20)+cd.countCoins(50)+cd.countCoins(100)+cd.countCoins(200);
+    
+    
 } 
    

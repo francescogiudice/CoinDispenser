@@ -27,8 +27,8 @@ public class CoinDispenserDemo {
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CoinDispenser dispenser = new CoinDispenser(300);
-        final int MAX_COINS = 10;
-        final int MAX_EXTRA = 4;
+        final int MAX_COINS = 50;
+        final int MAX_EXTRA = 199;
 
         for (;;) {
             System.out.print("Enter the amount to dispense in cents: ");

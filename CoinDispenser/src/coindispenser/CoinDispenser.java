@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class CoinDispenser {
 
-    private static final int[] VALUES = {200, 100, 50, 20, 5, 2, 1};
+    private static final int[] VALUES = {200, 100, 50, 20,10, 5, 2, 1};
     int[] coinCounters;        
 
     /**
@@ -26,6 +26,7 @@ public class CoinDispenser {
      */
     public CoinDispenser() {
         coinCounters = new int[VALUES.length];
+        
     }    
     
     /**
@@ -35,8 +36,12 @@ public class CoinDispenser {
      */
     public CoinDispenser(int initialCoins) {
         coinCounters = new int[VALUES.length];
-        for (int i = 1; i < coinCounters.length; i++)
-            coinCounters[i] = initialCoins;
+        
+        for (int i = 0; i < coinCounters.length; i++)
+        {
+                coinCounters[i] = initialCoins;
+            
+        }
     }
         
     /**
@@ -113,7 +118,7 @@ public class CoinDispenser {
     
     // Helper function computing if it is possible to compose the requested amount.
     private boolean composeChangeHelper(int value, int maxCoins, int maxExcess, List<Integer> coins) {
-        if (value <= 0 && value >= -maxExcess)
+        if (value <= 0 || value >10000)
             return true;
         else if (value < 0 || maxCoins == 0)
             return false;
@@ -125,7 +130,7 @@ public class CoinDispenser {
         }
                         
         for (int i = 0; i < VALUES.length; i++) {
-            if (coinCounters[i] < 0)
+            if (coinCounters[i] <= 0)
                 continue;
             coinCounters[i] -= 1;
             coins.add(VALUES[i]);
@@ -141,7 +146,7 @@ public class CoinDispenser {
     
     // Return the most valuable coin available in the specified range of values.
     private int findCoin(int minValue, int maxValue) {
-        for (int i = VALUES.length - 1; i >= 0; i--)
+        for (int i = VALUES.length -1; i >= 0; i--)
             if (VALUES[i] >= minValue && VALUES[i] < maxValue && coinCounters[i] > 0)
                 return VALUES[i];
         return 0;
